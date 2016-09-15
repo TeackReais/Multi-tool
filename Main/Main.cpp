@@ -219,11 +219,11 @@ int main()
 				SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN);
 				printf("FS");
 				SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_GREEN);
-				printf("立刻关机。\n");
+				printf("立刻关机");
 				SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
 				printf("。\n");
 				printf("输入:");
-				scanf_s("%s", str, 10);
+				scanf_s("%s", str3, 10);
 				{
 					if (_stricmp(str3, "QX") == 0)
 					{
