@@ -1,12 +1,14 @@
 #include "stdafx.h"
 #include "stdafx.cpp"
 #include "psapi.h"  
+#pragma warning(disable:4244)  //忽略转换错误警告
 #define LEAST_COUNTDOWN 0
 
 
 
-void thecountdowndosth(char *who, char *whattodo, int num, int least_countdown);
-void theclean(void);
+void thezdyshutdownrestart(void);
+void thezdyshutdownstart(void);
+void thecountdowndosth(char *who, char *whattodo, int numhour, int numminute, int numsecond, int least_countdown);
 void therestartover(void);
 void thetime(void);
 int main()
@@ -16,10 +18,7 @@ int main()
 	//	char setpassword[100];
 	//	char setdoubleclickstartmainexe[100];
 	char str[100];
-	char str2[100];
-	char str3[100];
 	char str4[80];
-	char str5[100];
 	HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
 	DeleteMenu(GetSystemMenu(GetConsoleWindow(), FALSE), SC_CLOSE, MF_BYCOMMAND); //禁止关闭程序
 	DrawMenuBar(GetConsoleWindow());
@@ -55,7 +54,8 @@ int main()
 		system("echo @输入ZC打开注册表编辑器。>>.\\logs\\Multi-tool.log");
 		system("echo @输入MS产生音乐。>>.\\logs\\Multi-tool.log");
 		system("echo @输入IP查看IP信息。>>.\\logs\\Multi-tool.log");
-		system("echo @输入QL清理垃圾文件。>>.\\logs\\Multi-tool.log");
+		system("echo @输入ZGJ自定义关机时间。>>.\\logs\\Multi-tool.log");
+		system("echo @输入ZCQ自定义关机时间。>>.\\logs\\Multi-tool.log");
 		system("echo @输入CMD打开命令提示符。>>.\\logs\\Multi-tool.log");
 		system("echo @输入XF修复系统文件。>>.\\logs\\Multi-tool.log");
 		system("echo @输入ZJS使用计算功能。>>.\\logs\\Multi-tool.log");
@@ -147,9 +147,16 @@ int main()
 		printf("。\n");
 		printf("输入");
 		SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN);
-		printf("QL");
+		printf("ZGJ");
 		SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_GREEN);
-		printf("清理垃圾文件");
+		printf("自定义关机时间");
+		SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
+		printf("。\n");
+		printf("输入");
+		SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN);
+		printf("ZCQ");
+		SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_GREEN);
+		printf("自定义重启时间");
 		SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
 		printf("。\n");
 		printf("输入");
@@ -199,6 +206,7 @@ int main()
 		{
 			if (_stricmp(str, "GJ") == 0)
 			{
+				char str3[100];
 				system("echo @输入:GJ>>.\\logs\\Multi-tool.log");
 				system("echo @系统将在30秒后关机。>>.\\logs\\Multi-tool.log");
 				system("echo @输入QX终止关机任务。>>.\\logs\\Multi-tool.log");
@@ -260,6 +268,7 @@ int main()
 			}
 			else if (_stricmp(str, "CQ") == 0)
 			{
+				char str3[100];
 				system("echo @输入:CQ>>.\\logs\\Multi-tool.log");
 				system("echo @系统将在30秒后重启。>>.\\logs\\Multi-tool.log");
 				system("echo @输入QX终止重启任务。>>.\\logs\\Multi-tool.log");
@@ -645,6 +654,7 @@ int main()
 			}
 			else if (_stricmp(str, "DEL") == 0)
 			{
+				char str2[100];
 				system("echo @输入:DEL>>.\\logs\\Multi-tool.log");
 				printf("输入");
 				SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN);
@@ -685,6 +695,7 @@ int main()
 			}
 			else if (_stricmp(str, "ZJS") == 0)
 			{
+				char str5[100];
 				float X;
 				float X_2;
 				float X_3;
@@ -863,34 +874,17 @@ int main()
 					therestartover();
 				}
 			}
-			else if (_stricmp(str, "QL") == 0)
-			{
-				system("echo @输入:QL>>.\\logs\\Multi-tool.log");
-				theclean();
-				therestartover();
-			}
 			else if (_stricmp(str, "ZGJ") == 0)
 			{
-				char shutdownstart[100] = "shutdown -f -s -t ";
-				char shutdownstartorrestarttime[100];
-				system("cls");
-				printf("请输入您想要在多少时间后关机(单位:S)。\n");
-				printf("输入:");
-				scanf_s("%s", shutdownstartorrestarttime, 10);
-				strcat_s(shutdownstart, shutdownstartorrestarttime);
-				system(shutdownstart);
-/*				AllocConsole();
-				{
-					thecountdowndosth("系统", "关机", shutdownstartorrestarttime, 0);
-				}*/
-				therestartover();
+				system("echo @输入:ZGJ>>.\\logs\\Multi-tool.log");
+				thezdyshutdownstart();
+			}
+			else if (_stricmp(str, "ZCQ") == 0)
+			{
+				system("echo @输入:ZCQ>>.\\logs\\Multi-tool.log");
+				thezdyshutdownrestart();
 			}
 			else if (_stricmp(str, "TEST") == 0)
-			{
-				thecountdowndosth("B", "行为", 500, 0);
-				therestartover();
-			}
-			else if (_stricmp(str, "TEST2") == 0)
 			{
 				char wheretogo[100];
 				printf("当前目录为%s。\n", str4);
@@ -909,6 +903,11 @@ int main()
 					printf("当前目录为%s。\n", str4);
 					therestartover();
 				}
+			}
+			else if (_stricmp(str, "TEST2") == 0)
+			{
+				thecountdowndosth("A", "灭亡", 20, 30, 40, 0);
+				therestartover();
 			}
 			else
 			{
@@ -945,20 +944,123 @@ void therestartover(void)
 	system("start start.exe");
 	Sleep(5000);
 }
-void theclean(void)
-{
-}
-void thecountdowndosth(char *who, char *whattodo, int num, int least_countdown)
+void thecountdowndosth(char *who, char *whattodo, int numhour, int numminute, int numsecond, int least_countdown)
 {
 	DeleteMenu(GetSystemMenu(GetConsoleWindow(), TRUE), SC_CLOSE, MF_BYCOMMAND);
 	DrawMenuBar(GetConsoleWindow());
 	system("cls");
-	printf("%s将在%d秒后%s。\n", who, num, whattodo);
-	while (num > least_countdown)
+	int allsecond;
+	int allminute;
+	allsecond = numhour * 3600 + numminute * 60 + numsecond;
+	allminute = numhour * 60 + numminute;
+	printf("%s将在%d小时%d分钟%d秒后%s。\n", who, numhour, numminute, numsecond, whattodo);
+	printf("合计为%d分%d秒。\n", allminute, numsecond);
+	printf("合计为%d秒。\n", allsecond);
+	while (allsecond > least_countdown)
 	{
-		printf("%d\n", num);
-		num--;
+		printf("%d\n", allsecond);
+		allsecond--;
 		Sleep(1000);
 	}
 	exit(0);
+}
+void thezdyshutdownstart(void)
+{
+	void therestartover(void);
+	void thecountdowndosth(char *who, char *whattodo, int numhour, int numminute, int numsecond, int least_countdown);
+	int thechartoint1; 
+	int thechartoint2; 
+	int thechartoint3;
+	int thechartointall;
+	char shutdownstart[100] = "shutdown -f -s -t ";
+	char all[200];
+	char shutdownstartorrestarttime1[200];
+	char shutdownstartorrestarttime2[200];
+	char shutdownstartorrestarttime3[200];
+	system("cls");
+	printf("请输入您想要在多少时间后关机(单位:hour)。\n");
+	printf("输入:");
+	scanf_s("%s", shutdownstartorrestarttime1, 10);
+	printf("请输入您想要在多少时间后关机(单位:minute)。\n");
+	printf("输入:");
+	scanf_s("%s", shutdownstartorrestarttime2, 10);
+	printf("请输入您想要在多少时间后关机(单位:second)。\n");
+	printf("输入:");
+	scanf_s("%s", shutdownstartorrestarttime3, 10);
+	thechartoint1 = atof(shutdownstartorrestarttime1);
+	thechartoint2 = atof(shutdownstartorrestarttime2);
+	thechartoint3 = atof(shutdownstartorrestarttime3);
+	thechartointall = thechartoint1 * 3600 + thechartoint2 * 60 + thechartoint3;
+	_itoa_s(thechartointall, all, 200, 10);
+	strcat_s(shutdownstart, all);
+	if (!system(shutdownstart) == NULL)
+	{
+		system("cls");
+		printf("错误!\n");
+		printf("原因如下：\n");
+		printf("1.输入数据太大。\n");
+		printf("2.输入了非正整数。\n");
+		printf("3.输入非数字字符串。\n");
+		printf("4.已经有关机或重启计划存在。\n");
+		therestartover();
+	}
+	else
+	{
+		AllocConsole();
+		{
+			thechartointall = atof(all);  //char to int
+			thecountdowndosth("系统", "关机", thechartoint1, thechartoint2, thechartoint3, 0);
+		}
+		therestartover();
+	}
+}
+void thezdyshutdownrestart(void)
+{
+	void therestartover(void);
+	void thecountdowndosth(char *who, char *whattodo, int numhour, int numminute, int numsecond, int least_countdown);
+	int thechartoint1;
+	int thechartoint2;
+	int thechartoint3;
+	int thechartointall;
+	char shutdownstart[100] = "shutdown -f -r -t ";
+	char all[200];
+	char shutdownstartorrestarttime1[200];
+	char shutdownstartorrestarttime2[200];
+	char shutdownstartorrestarttime3[200];
+	system("cls");
+	printf("请输入您想要在多少时间后重启(单位:hour)。\n");
+	printf("输入:");
+	scanf_s("%s", shutdownstartorrestarttime1, 10);
+	printf("请输入您想要在多少时间后重启(单位:minute)。\n");
+	printf("输入:");
+	scanf_s("%s", shutdownstartorrestarttime2, 10);
+	printf("请输入您想要在多少时间后重启(单位:second)。\n");
+	printf("输入:");
+	scanf_s("%s", shutdownstartorrestarttime3, 10);
+	thechartoint1 = atof(shutdownstartorrestarttime1);
+	thechartoint2 = atof(shutdownstartorrestarttime2);
+	thechartoint3 = atof(shutdownstartorrestarttime3);
+	thechartointall = thechartoint1 * 3600 + thechartoint2 * 60 + thechartoint3;
+	_itoa_s(thechartointall, all, 200, 10);
+	strcat_s(shutdownstart, all);
+	if (!system(shutdownstart) == NULL)
+	{
+		system("cls");
+		printf("错误!\n");
+		printf("原因如下：\n");
+		printf("1.输入数据太大。\n");
+		printf("2.输入了非正整数。\n");
+		printf("3.输入非数字字符串。\n");
+		printf("4.已经有关机或重启计划存在。\n");
+		therestartover();
+	}
+	else
+	{
+		AllocConsole();
+		{
+			thechartointall = atof(all);  //char to int
+			thecountdowndosth("系统", "重启", thechartoint1, thechartoint2, thechartoint3, 0);
+		}
+		therestartover();
+	}
 }
