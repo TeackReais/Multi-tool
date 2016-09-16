@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "stdafx.cpp"
 #include "psapi.h"  
-#pragma warning(disable:4244)  //忽略转换错误警告
+#pragma warning(disable:4244)  //忽略转换错误警告44
 
 
 
@@ -23,7 +23,7 @@ int main()
 	DrawMenuBar(GetConsoleWindow());
 	system("title 多功能工具");
 	system("mode con cols=65 lines=32");
-	if (!system("taskkill /f /im start.exe") == NULL)
+/*	if (!system("taskkill /f /im start.exe") == NULL)
 	{
 		system("cls");
 		system("taskkill /f /im explorer.exe");
@@ -37,7 +37,7 @@ int main()
 		Sleep(30000);
 		exit(0);
 	}
-	else
+	else*/
 	{
 		system("md .\\logs>nul");
 		system("fsutil file createnew .\\logs\\Multi-tool.log 1000>nul");
@@ -1017,27 +1017,41 @@ void thezdyshutdownstart(void)
 	thechartoint2 = atof(shutdownstartorrestarttime2);
 	thechartoint3 = atof(shutdownstartorrestarttime3);
 	thechartointall = thechartoint1 * 3600 + thechartoint2 * 60 + thechartoint3;
-	_itoa_s(thechartointall, all, 200, 10);
-	strcat_s(shutdownstart, all);
-	if (!system(shutdownstart) == NULL)
+	if (thechartoint3 < 0, thechartoint3 < 0, thechartoint3 < 0)
 	{
-		system("cls");
-		printf("错误!\n");
-		printf("原因如下：\n");
-		printf("1.输入数据太大。\n");
-		printf("2.输入了非正整数。\n");
-		printf("3.输入非数字字符串。\n");
-		printf("4.已经有关机或重启计划存在。\n");
+		printf("错误:数据不能为负。\n");
 		therestartover();
 	}
 	else
 	{
-		AllocConsole();
+		if (thechartointall >= 315360000)
 		{
-			thechartointall = atof(all);  //char to int
-			thecountdowndosth("系统", "关机", thechartoint1, thechartoint2, thechartoint3, 0);
+			printf("错误:数据过大。\n");
+			printf("总秒数不能超过315360000=10年。\n");
+			therestartover();
 		}
-		therestartover();
+		_itoa_s(thechartointall, all, 200, 10);
+		strcat_s(shutdownstart, all);
+		if (!system(shutdownstart) == NULL)
+		{
+			system("cls");
+			printf("错误!\n");
+			printf("原因如下：\n");
+			printf("1.输入数据太大。\n");
+			printf("2.输入了非正整数。\n");
+			printf("3.输入非数字字符串。\n");
+			printf("4.已经有关机或重启计划存在。\n");
+			therestartover();
+		}
+		else
+		{
+			AllocConsole();
+			{
+				thechartointall = atof(all);  //char to int
+				thecountdowndosth("系统", "关机", thechartoint1, thechartoint2, thechartoint3, 0);
+			}
+			therestartover();
+		}
 	}
 }
 void thezdyshutdownrestart(void)
@@ -1056,41 +1070,55 @@ void thezdyshutdownrestart(void)
 	char shutdownstartorrestarttime2[200];
 	char shutdownstartorrestarttime3[200];
 	system("cls");
-	printf("禁止输入任何非正整数。\n");
+	printf("禁止输入任何非数字Z。\n");
 	printf("请输入您想要在多少时间后重启(单位:hour)。\n");
 	printf("输入:");
-	scanf_s("%s", shutdownstartorrestarttime1, 10);
+	scanf_s("%9s", shutdownstartorrestarttime1, 10);
     printf("请输入您想要在多少时间后重启(单位:minute)。\n");
 	printf("输入:");
-	scanf_s("%s", shutdownstartorrestarttime2, 10);
+	scanf_s("%9s", shutdownstartorrestarttime2, 10);
 	printf("请输入您想要在多少时间后重启(单位:second)。\n");
 	printf("输入:");
-	scanf_s("%s", shutdownstartorrestarttime3, 10);
-	thechartoint1 = atof(shutdownstartorrestarttime1);
+	scanf_s("%9s", shutdownstartorrestarttime3, 10);
+    thechartoint1 = atof(shutdownstartorrestarttime1);
 	thechartoint2 = atof(shutdownstartorrestarttime2);
 	thechartoint3 = atof(shutdownstartorrestarttime3);
 	thechartointall = thechartoint1 * 3600 + thechartoint2 * 60 + thechartoint3;
-	_itoa_s(thechartointall, all, 200, 10);
-	strcat_s(shutdownrestart, all);
-	if (!system(shutdownrestart) == NULL)
+	if (thechartoint3 < 0 , thechartoint3 < 0 , thechartoint3 < 0)
 	{
-	    system("cls");
-		printf("错误!\n");
-		printf("原因如下：\n");
-		printf("1.输入数据太大。\n");
-		printf("2.输入了非正整数。\n");
-		printf("3.输入非数字字符串。\n");
-		printf("4.已经有关机或重启计划存在。\n");
+		printf("错误:数据不能为负。\n");
 		therestartover();
 	}
-    else
+	else
 	{
-		AllocConsole();
+		if (thechartointall >= 315360000)
 		{
-			thechartointall = atof(all);  //char to int
-			thecountdowndosth("系统", "重启", thechartoint1, thechartoint2, thechartoint3, 0);
+			printf("错误:数据过大。\n");
+			printf("总秒数不能超过315360000=10年。\n");
+			therestartover();
 		}
-		therestartover();
+		_itoa_s(thechartointall, all, 200, 10);
+		strcat_s(shutdownrestart, all);
+		if (!system(shutdownrestart) == NULL)
+		{
+			system("cls");
+			printf("错误!\n");
+			printf("原因如下：\n");
+			printf("1.输入数据太大。\n");
+			printf("2.输入了非正整数。\n");
+			printf("3.输入非数字字符串。\n");
+			printf("4.已经有关机或重启计划存在。\n");
+			therestartover();
+		}
+		else
+		{
+			AllocConsole();
+			{
+				thechartointall = atof(all);  //char to int
+				thecountdowndosth("系统", "重启", thechartoint1, thechartoint2, thechartoint3, 0);
+			}
+			therestartover();
+		}
 	}
 }
 /*void thestartanypartition(char* partition)
