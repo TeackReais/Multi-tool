@@ -2,7 +2,6 @@
 #include "stdafx.cpp"
 #include "psapi.h"  
 #pragma warning(disable:4244)  //忽略转换错误警告
-#define LEAST_COUNTDOWN 0
 
 
 
@@ -906,8 +905,32 @@ int main()
 			}
 			else if (_stricmp(str, "TEST2") == 0)
 			{
-				thecountdowndosth("A", "灭亡", 20, 30, 40, 0);
-				therestartover();
+				char test1[200];
+				char test2[200];
+				printf("test1\n");
+				scanf_s("%s", test1, 200);
+				printf("test2\n");
+				scanf_s("%s", test2, 200);
+				if (_stricmp(test1, test2) == 0)
+				{
+					printf("%s=%s\n", test1, test2);
+					therestartover();
+				}
+				else if (_stricmp(test1, test2) > 0)
+				{
+					printf("%s>%s\n", test1, test2);
+					therestartover();
+				}
+				else if (_stricmp(test1, test2) < 0)
+				{
+					printf("%s<%s\n", test1, test2);
+					therestartover();
+				}
+				else
+				{
+					printf("??????????????????????\n");
+					therestartover();
+				}
 			}
 			else
 			{
@@ -966,6 +989,8 @@ void thecountdowndosth(char *who, char *whattodo, int numhour, int numminute, in
 }
 void thezdyshutdownstart(void)
 {
+	DeleteMenu(GetSystemMenu(GetConsoleWindow(), TRUE), SC_CLOSE, MF_BYCOMMAND);
+	DrawMenuBar(GetConsoleWindow());
 	void therestartover(void);
 	void thecountdowndosth(char *who, char *whattodo, int numhour, int numminute, int numsecond, int least_countdown);
 	int thechartoint1; 
@@ -978,6 +1003,7 @@ void thezdyshutdownstart(void)
 	char shutdownstartorrestarttime2[200];
 	char shutdownstartorrestarttime3[200];
 	system("cls");
+	printf("禁止输入任何非正整数。\n");
 	printf("请输入您想要在多少时间后关机(单位:hour)。\n");
 	printf("输入:");
 	scanf_s("%s", shutdownstartorrestarttime1, 10);
@@ -1016,22 +1042,25 @@ void thezdyshutdownstart(void)
 }
 void thezdyshutdownrestart(void)
 {
+	DeleteMenu(GetSystemMenu(GetConsoleWindow(), TRUE), SC_CLOSE, MF_BYCOMMAND);
+	DrawMenuBar(GetConsoleWindow());
 	void therestartover(void);
 	void thecountdowndosth(char *who, char *whattodo, int numhour, int numminute, int numsecond, int least_countdown);
 	int thechartoint1;
 	int thechartoint2;
 	int thechartoint3;
 	int thechartointall;
-	char shutdownstart[100] = "shutdown -f -r -t ";
+	char shutdownrestart[100] = "shutdown -f -r -t ";
 	char all[200];
 	char shutdownstartorrestarttime1[200];
 	char shutdownstartorrestarttime2[200];
 	char shutdownstartorrestarttime3[200];
 	system("cls");
+	printf("禁止输入任何非正整数。\n");
 	printf("请输入您想要在多少时间后重启(单位:hour)。\n");
 	printf("输入:");
 	scanf_s("%s", shutdownstartorrestarttime1, 10);
-	printf("请输入您想要在多少时间后重启(单位:minute)。\n");
+    printf("请输入您想要在多少时间后重启(单位:minute)。\n");
 	printf("输入:");
 	scanf_s("%s", shutdownstartorrestarttime2, 10);
 	printf("请输入您想要在多少时间后重启(单位:second)。\n");
@@ -1042,10 +1071,10 @@ void thezdyshutdownrestart(void)
 	thechartoint3 = atof(shutdownstartorrestarttime3);
 	thechartointall = thechartoint1 * 3600 + thechartoint2 * 60 + thechartoint3;
 	_itoa_s(thechartointall, all, 200, 10);
-	strcat_s(shutdownstart, all);
-	if (!system(shutdownstart) == NULL)
+	strcat_s(shutdownrestart, all);
+	if (!system(shutdownrestart) == NULL)
 	{
-		system("cls");
+	    system("cls");
 		printf("错误!\n");
 		printf("原因如下：\n");
 		printf("1.输入数据太大。\n");
@@ -1054,7 +1083,7 @@ void thezdyshutdownrestart(void)
 		printf("4.已经有关机或重启计划存在。\n");
 		therestartover();
 	}
-	else
+    else
 	{
 		AllocConsole();
 		{
@@ -1064,3 +1093,9 @@ void thezdyshutdownrestart(void)
 		therestartover();
 	}
 }
+/*void thestartanypartition(char* partition)
+{
+	char themaohao[100] = ":";
+	strcat_s(partition, themaohao);
+	system(partition);
+}*/
