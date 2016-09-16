@@ -20,7 +20,6 @@ int main()
 	char str3[100];
 	char str4[80];
 	char str5[100];
-	int setshutdownorrestarttime;
 	HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
 	DeleteMenu(GetSystemMenu(GetConsoleWindow(), FALSE), SC_CLOSE, MF_BYCOMMAND); //禁止关闭程序
 	DrawMenuBar(GetConsoleWindow());
@@ -872,22 +871,18 @@ int main()
 			}
 			else if (_stricmp(str, "ZGJ") == 0)
 			{
+				char shutdownstart[100] = "shutdown -f -s -t ";
+				char shutdownstartorrestarttime[100];
 				system("cls");
 				printf("请输入您想要在多少时间后关机(单位:S)。\n");
-				setshutdownorrestarttime = getchar();
-				putchar(setshutdownorrestarttime);
-				system("pause");
-				AllocConsole();
+				printf("输入:");
+				scanf_s("%s", shutdownstartorrestarttime, 10);
+				strcat_s(shutdownstart, shutdownstartorrestarttime);
+				system(shutdownstart);
+/*				AllocConsole();
 				{
-					printf("系统将在%d秒后关机。\n", setshutdownorrestarttime);
-					while (setshutdownorrestarttime < LEAST_COUNTDOWN)
-					{
-						printf("%d\n", setshutdownorrestarttime);
-						setshutdownorrestarttime--;
-						Sleep(1000);
-					}
-					exit(0);
-				}
+					thecountdowndosth("系统", "关机", shutdownstartorrestarttime, 0);
+				}*/
 				therestartover();
 			}
 			else if (_stricmp(str, "TEST") == 0)
