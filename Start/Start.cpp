@@ -20,23 +20,27 @@ int main()
 		system("cls");
 		printf("请输入访问口令。\n");
 		printf("输入:");
-		scanf_s("%s", str, 10);
+		while (1)
 		{
-			if (_stricmp(str, "KAIXU") == 0)
+			scanf_s("%s", str, 10);
 			{
-				system("cls");
-				system("start main/Main");
-				Sleep(5000);
-			}
-			else
-			{
-				printf("口令错误。\n");
-				printf("按任意键重启程序。\n");
-				_getch();
-				system("start start.exe");
-				exit(0);
+				if (_stricmp(str, "KAIXU") == 0)
+				{
+					system("cls");
+					system("start main/Main");
+					Sleep(5000);
+				}
+				else
+				{
+					system("cls");
+					printf("口令错误。\n");
+					printf("请重新输入访问口令。\n");
+					printf("输入：");
+			     	continue;
+				}
 			}
 		}
+		system("pause");
 	}
 	else
 	{

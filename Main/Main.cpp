@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "stdafx.cpp"
 #include "psapi.h"  
+#define SPACE ' '
 #pragma warning(disable:4244)  //忽略转换错误警告44
 
 
@@ -883,27 +884,30 @@ int main()
 				system("echo @输入:ZCQ>>.\\logs\\Multi-tool.log");
 				thezdyshutdownrestart();
 			}
+			else if (_stricmp(str, "MZCS") == 0)
+			{
+				char name[100];
+				system("cls");
+				printf("输入:");
+				scanf_s("%s", name, 100);
+				printf("你的名字是%s,占%d个字节,%d。\n", name, sizeof name, strlen(name));
+				therestartover();
+			}
 			else if (_stricmp(str, "TEST") == 0)
 			{
-				char wheretogo[100];
-				printf("当前目录为%s。\n", str4);
-				printf("请输入目标目录。\n");
-				printf("输入：");
-				scanf_s("%s", wheretogo, 10);
-				if (!(_chdir(wheretogo)) == NULL)
+				char ch;
+				ch = getchar();
+				if (ch = SPACE)
 				{
-					printf("工作目录修改失败。\n");
-					perror("错误原因：");
-					therestartover();
+					printf("1");
 				}
 				else
 				{
-					printf("工作目录修改成功。\n");
-					printf("当前目录为%s。\n", str4);
-					therestartover();
+					printf("%c", ch);
 				}
+				therestartover();
 			}
-			else if (_stricmp(str, "TEST2") == 0)
+			else if (_stricmp(str, "DAXIAOCESHI") == 0)
 			{
 				char test1[200];
 				char test2[200];
