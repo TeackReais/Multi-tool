@@ -29,6 +29,7 @@ int main()
 					system("cls");
 					system("start main/Main");
 					Sleep(5000);
+					break;
 				}
 				else
 				{
@@ -40,7 +41,6 @@ int main()
 				}
 			}
 		}
-		system("pause");
 	}
 	else
 	{
