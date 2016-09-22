@@ -1,8 +1,10 @@
+//Welcome to https://github.com/TeackReais/Multi-Tool/blob/master/Main/Main.cpp Created By XUKAI.
+//Enjoy useing!!!!
 #include "stdafx.h"
 #include "stdafx.cpp"
 #include "psapi.h"  
 #define SPACE ' '
-#define KONGGE '\n'
+#define HUICHE '\n'
 #pragma warning(disable:4244)  //ºöÂÔ×ª»»´íÎó¾¯¸æ44
 
 
