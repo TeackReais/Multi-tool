@@ -1,5 +1,8 @@
-//Welcome to https://github.com/TeackReais/Multi-Tool/blob/master/Main/Main.cpp Created By XUKAI.
-//Enjoy useing!!!!
+//Welcome to https://github.com/TeackReais/Multi-Tool/blob/master/Main/Main.cpp
+//Thanks for github.com
+//Created By XUKAI.
+//Here is source.
+//Enjoy using!!!!
 #include "stdafx.h"
 #include "stdafx.cpp"
 #include "psapi.h"  
