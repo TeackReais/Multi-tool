@@ -8,7 +8,7 @@
 #include <ShellAPI.h>  
 
 
-int main()
+int main(void)
 {
 	int thestart = 0;
 	char str[100];
@@ -41,11 +41,12 @@ int main()
 				}
 			}
 		}
+		exit(0);
 	}
 	else
 	{
 		system("start main/Main.exe");
 		Sleep(5000);
+		exit(0);
 	}
-	return 0;
 }
