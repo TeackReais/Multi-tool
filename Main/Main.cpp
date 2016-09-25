@@ -950,14 +950,14 @@ int main()
 						system("cls");
 						printf("输入:");
 						scanf_s("%s", name, 100);
-						printf("你的名字是%s,占%d个字节,%d。\n", name, sizeof name, strlen(name));
+						printf("你的名字是%s,占%zd个字节,%zd。\n", name, sizeof name, strlen(name));
 						thebackover();
 						continue;
 					}
-					else if (_stricmp(str, "TEST2") == 0)
+					else if (_stricmp(str, "DKWJ") == 0)
 					{
 						FILE *fp;
-						if (fp == fopen("CountDownShutdown.exe", "r") == NULL)
+						if ((fp = fopen("C:\\Windows\\explorer.exe", "r+")) == NULL)
 						{
 							printf("Error!");
 							thebackover();
@@ -969,7 +969,7 @@ int main()
 							continue;
 						}
 					}
-					else if (_stricmp(str, "TEST") == 0)
+					else if (_stricmp(str, "GETCHAR") == 0)
 					{
 						char ch;
 						ch = getchar();
@@ -981,6 +981,19 @@ int main()
 						{
 							printf("%c", ch);
 						}
+						thebackover();
+						continue;
+					}
+					else if (_stricmp(str, "Test") == 0)
+					{
+						int NUM1;
+						int NUM2;
+						int *NUM3 = NUM1;
+						NUM1 = 10;
+						NUM2 = NUM1;
+						printf("Now num1=%d,num2=%d,num3=%d", NUM1, NUM2, NUM3);
+						NUM1++;
+						printf("After Add,now num1=%d,num2=%d,num3=%d", NUM1, NUM2, NUM3);
 						thebackover();
 						continue;
 					}
