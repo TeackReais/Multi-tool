@@ -6,9 +6,10 @@
 #include "stdafx.h"
 #include "stdafx.cpp"
 #include "psapi.h"  
+#include <fstream>
 #define SPACE ' '
 #define HUICHE '\n'
-#pragma warning(disable:4244)  //ºöÂÔ×ª»»´íÎó¾¯¸æ44
+#pragma warning(disable:4244)  //ºöÂÔ×ª»»´íÎó¾¯¸æ4244
 
 
 
@@ -20,10 +21,6 @@ void therestartover(void);
 void thetime(void);
 int main()
 {
-	//	FILE * fp1 = fopen("Settings.ini", "r");
-	//	char setusepassword[100];
-	//	char setpassword[100];
-	//	char setdoubleclickstartmainexe[100];
 	char str[100];
 	char str4[80];
 	HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -957,6 +954,21 @@ int main()
 						thebackover();
 						continue;
 					}
+					else if (_stricmp(str, "TEST2") == 0)
+					{
+						FILE *fp;
+						if (fp == fopen("CountDownShutdown.exe", "r") == NULL)
+						{
+							printf("Error!");
+							thebackover();
+							continue;
+						}
+						else
+						{
+							thebackover();
+							continue;
+						}
+					}
 					else if (_stricmp(str, "TEST") == 0)
 					{
 						char ch;
@@ -1210,9 +1222,3 @@ void thezdyshutdownrestart(void)
 		}
 	}
 }
-/*void thestartanypartition(char* partition)
-{
-	char themaohao[100] = ":";
-	strcat_s(partition, themaohao);
-	system(partition);
-}*/
