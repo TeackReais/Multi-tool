@@ -944,6 +944,30 @@ int main()
 						system("echo @输入:ZCQ>>.\\logs\\Multi-tool.log");
 						thezdyshutdownrestart();
 					}
+					else if (_stricmp(str, "RW") == 0)
+					{
+						system("cls");
+						char thetime[200];
+						char KONGGE[200] = " ";
+						char KONGGE2[200] = " ";
+						char whattodo[200];
+						char theat[200] = "at";
+						printf("请输入工作时间。(例如:19:25)\n");
+						printf("输入:");
+						scanf_s("%s", thetime, 200);
+						printf("请输入工作任务。\n");
+						printf("输入:");
+						scanf_s("%s", whattodo, 200);
+						strcat_s(KONGGE, whattodo);
+						strcat_s(thetime, KONGGE);
+						strcat_s(KONGGE2, thetime);
+						strcat_s(theat, KONGGE2);
+						system(theat);
+						printf("%s任务将在%s实施。\n", whattodo, thetime);
+						printf("你输入的是%s。\n", theat);
+						thebackover();
+						continue;
+					}
 					else if (_stricmp(str, "MZCS") == 0)
 					{
 						char name[100];
@@ -984,7 +1008,7 @@ int main()
 						thebackover();
 						continue;
 					}
-					else if (_stricmp(str, "Test") == 0)
+/*					else if (_stricmp(str, "Test") == 0)
 					{
 						int NUM1;
 						int NUM2;
@@ -996,7 +1020,7 @@ int main()
 						printf("After Add,now num1=%d,num2=%d,num3=%d", NUM1, NUM2, NUM3);
 						thebackover();
 						continue;
-					}
+					}*/
 					else if (_stricmp(str, "DAXIAOCESHI") == 0)
 					{
 						char test1[200];
