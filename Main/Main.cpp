@@ -49,7 +49,6 @@ int main()
 			system("cls");
 			system("md .\\logs>nul");
 			system("fsutil file createnew .\\logs\\Multi-tool.log 1000>nul");
-
 			while (1)
 			{
 				system("echo @(list)>>.\\logs\\Multi-tool.log");
@@ -61,10 +60,7 @@ int main()
 					if (_stricmp(str, "1") == 0)
 					{
 						char str3[100];
-						system("echo @输入:1.>>.\\logs\\Multi-tool.log");
-						system("echo @系统将在30秒后关机。>>.\\logs\\Multi-tool.log");
-						system("echo @1.终止关机任务。>>.\\logs\\Multi-tool.log");
-						system("echo @2.立刻关机。>>.\\logs\\Multi-tool.log");
+						system("echo @输入:1(30S关机).>>.\\logs\\Multi-tool.log");
 						system("cls");
 						system("shutdown -f -s -t 30");
 						system("start main/CountDownShutdown.exe");
@@ -87,8 +83,7 @@ int main()
 							if (_stricmp(str3, "1") == 0)
 							{
 								system("shutdown -a");
-								system("echo @输入:1>>.\\logs\\Multi-tool.log");
-								system("echo @关机任务已取消。>>.\\logs\\Multi-tool.log");
+								system("echo @输入:1(取消关机)>>.\\logs\\Multi-tool.log");
 								system("cls");
 								system("taskkill /im CountDownShutdown.exe");
 								SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_GREEN);
@@ -100,7 +95,7 @@ int main()
 							}
 							else if (_stricmp(str3, "2") == 0)
 							{
-								system("echo @输入:2>>.\\logs\\Multi-tool.log");
+								system("echo @输入:2(强行关机)>>.\\logs\\Multi-tool.log");
 								system("shutdown -a");
 								system("taskkill /im CountDownShutdown.exe");
 								system("shutdown -f -s -t 0");
@@ -108,8 +103,7 @@ int main()
 							}
 							else
 							{
-								system("echo @输入:>>.\\logs\\Multi-tool.log");
-								system("echo @没有该指令。>>.\\logs\\Multi-tool.log");
+								system("echo @输入:(无指令)>>.\\logs\\Multi-tool.log");
 								system("cls");
 								SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_GREEN);
 								printf("没有该指令");
@@ -123,10 +117,7 @@ int main()
 					else if (_stricmp(str, "2") == 0)
 					{
 						char str3[100];
-						system("echo @输入:2>>.\\logs\\Multi-tool.log");
-						system("echo @系统将在30秒后重启。>>.\\logs\\Multi-tool.log");
-						system("echo @1.终止重启任务。>>.\\logs\\Multi-tool.log");
-						system("echo @2.立刻重启。>>.\\logs\\Multi-tool.log");
+						system("echo @输入:2(30S重启)>>.\\logs\\Multi-tool.log");
 						system("cls");
 						system("shutdown -f -r -t 30");
 						system("start main/CountDownRestart.exe");
@@ -148,8 +139,7 @@ int main()
 							if (_stricmp(str3, "1") == 0)
 							{
 								system("shutdown -a");
-								system("echo @输入:1>>.\\logs\\Multi-tool.log");
-								system("echo @重启任务已取消。>>.\\logs\\Multi-tool.log");
+								system("echo @输入:1(取消重启)>>.\\logs\\Multi-tool.log");
 								system("cls");
 								system("taskkill /im CountDownRestart.exe");
 								SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_GREEN);
@@ -161,7 +151,7 @@ int main()
 							}
 							else if (_stricmp(str3, "2") == 0)
 							{
-								system("echo @输入:2>>.\\logs\\Multi-tool.log");
+								system("echo @输入:2(强行重启)>>.\\logs\\Multi-tool.log");
 								system("shutdown -a");
 								system("taskkill /im CountDownRestart.exe");
 								system("shutdown -f -r -t 0");
@@ -169,8 +159,7 @@ int main()
 							}
 							else
 							{
-								system("echo @输入:>>.\\logs\\Multi-tool.log");
-								system("echo @没有该指令。>>.\\logs\\Multi-tool.log");
+								system("echo @输入:(无指令)>>.\\logs\\Multi-tool.log");
 								system("cls");
 								SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_GREEN);
 								printf("没有该指令");
@@ -183,7 +172,7 @@ int main()
 					}
 					else if (_stricmp(str, "4") == 0)
 					{
-						system("echo @输入:4>>.\\logs\\Multi-tool.log");
+						system("echo @输入:4(任务管理器)>>.\\logs\\Multi-tool.log");
 						system("cls");
 						system("taskmgr");
 						thebackover();
@@ -191,7 +180,7 @@ int main()
 					}
 					else if (_stricmp(str, "5") == 0)
 					{
-						system("echo @输入:5>>.\\logs\\Multi-tool.log");
+						system("echo @输入:5(控制面板)>>.\\logs\\Multi-tool.log");
 						system("cls");
 						system("control");
 						thebackover();
@@ -407,7 +396,7 @@ int main()
 					}
 					else if (_stricmp(str, "6") == 0)
 					{
-						system("echo @输入:6>>.\\logs\\Multi-tool.log");
+						system("echo @输入:6(计算器)>>.\\logs\\Multi-tool.log");
 						system("cls");
 						system("calc");
 						thebackover();
@@ -415,7 +404,7 @@ int main()
 					}
 					else if (_stricmp(str, "7") == 0)
 					{
-						system("echo @输入:7>>.\\logs\\Multi-tool.log");
+						system("echo @输入:7(注册表)>>.\\logs\\Multi-tool.log");
 						system("cls");
 						system("regedit");
 						thebackover();
@@ -423,14 +412,14 @@ int main()
 					}
 					else if (_stricmp(str, "9") == 0)
 					{
-						system("echo @输入:9>>.\\logs\\Multi-tool.log");
+						system("echo @输入:9(IP信息)>>.\\logs\\Multi-tool.log");
 						system("cls");
 						system("ipconfig");
 						thebackover();
 					}
 					else if (_stricmp(str, "12") == 0)
 					{
-						system("echo @输入:12>>.\\logs\\Multi-tool.log");
+						system("echo @输入:12(CMD)>>.\\logs\\Multi-tool.log");
 						system("cls");
 						DeleteMenu(GetSystemMenu(GetConsoleWindow(), TRUE), SC_CLOSE, MF_BYCOMMAND); //允许关闭CMD窗口
 						DrawMenuBar(GetConsoleWindow());
@@ -444,13 +433,13 @@ int main()
 					}
 					else if (_stricmp(str, "17") == 0)
 					{
-						system("echo @输入:17>>.\\logs\\Multi-tool.log");
+						system("echo @输入:17(关闭)>>.\\logs\\Multi-tool.log");
 						system("cls");
 						exit(0);
 					}
 					else if (_stricmp(str, "3") == 0)
 					{
-						system("echo @输入:3>>.\\logs\\Multi-tool.log");
+						system("echo @输入:3(取消关机或重启)>>.\\logs\\Multi-tool.log");
 						system("cls");
 						if (!system("taskkill /f /im CountDownShutdown.exe") == NULL)
 						{
@@ -508,7 +497,7 @@ int main()
 					}
 					else if (_stricmp(str, "8") == 0)
 					{
-						system("echo @输入:8>>.\\logs\\Multi-tool.log");
+						system("echo @输入:8(音乐)>>.\\logs\\Multi-tool.log");
 						system("cls");
 						Beep(500, 500);
 						Beep(600, 500);
@@ -535,7 +524,7 @@ int main()
 					}
 					else if (_stricmp(str, "14") == 0)
 					{
-						system("echo @输入:14>>.\\logs\\Multi-tool.log");
+						system("echo @输入:14(修复系统文件)>>.\\logs\\Multi-tool.log");
 						system("cls");
 						system("sfc /SCANNOW");
 						thebackover();
@@ -544,7 +533,7 @@ int main()
 					else if (_stricmp(str, "16") == 0)
 					{
 						char str2[100];
-						system("echo @输入:16>>.\\logs\\Multi-tool.log");
+						system("echo @输入:16(卸载文件)>>.\\logs\\Multi-tool.log");
 						printf("输入");
 						SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN);
 						printf("Y");
@@ -577,7 +566,7 @@ int main()
 							}
 							else
 							{
-								system("echo @输入:>>.\\logs\\Multi-tool.log");
+								system("echo @输入:(无指令)>>.\\logs\\Multi-tool.log");
 								thebackover();
 								continue;
 							}
@@ -597,8 +586,7 @@ int main()
 							float D;
 							float C;
 							system("cls");
-							system("echo @输入:ZJS>>.\\logs\\Multi-tool.log");
-							system("echo @请输入计算内容。>>.\\logs\\Multi-tool.log");
+							system("echo @输入:15(自定义计算)>>.\\logs\\Multi-tool.log");
 							SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
 							printf("请");
 							SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN);
@@ -772,8 +760,7 @@ int main()
 							}
 							else
 							{
-								system("echo @输入:>>.\\logs\\Multi-tool.log");
-								system("echo @没有该指令。>>.\\logs\\Multi-tool.log");
+								system("echo @输入:(无指令)>>.\\logs\\Multi-tool.log");
 								system("cls");
 								SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_GREEN);
 								printf("没有该指令");
@@ -788,7 +775,7 @@ int main()
 					}
 					else if (_stricmp(str, "10") == 0)
 					{
-						system("echo @输入:10>>.\\logs\\Multi-tool.log");
+						system("echo @输入:10(自定义关机)>>.\\logs\\Multi-tool.log");
 						DeleteMenu(GetSystemMenu(GetConsoleWindow(), TRUE), SC_CLOSE, MF_BYCOMMAND);
 						DrawMenuBar(GetConsoleWindow());
 						int thechartoint1;
@@ -854,7 +841,7 @@ int main()
 					}
 					else if (_stricmp(str, "11") == 0)
 					{
-						system("echo @输入:11>>.\\logs\\Multi-tool.log");
+						system("echo @输入:11(自定义重启)>>.\\logs\\Multi-tool.log");
 						DeleteMenu(GetSystemMenu(GetConsoleWindow(), TRUE), SC_CLOSE, MF_BYCOMMAND);
 						DrawMenuBar(GetConsoleWindow());
 						void therestartover(void);
@@ -922,13 +909,14 @@ int main()
 					}
 					else if (_stricmp(str, "13") == 0)
 					{
-						system("echo @输入:13>>.\\logs\\Multi-tool.log");
+						system("echo @输入:13(执行DOS)>>.\\logs\\Multi-tool.log");
 						system("cls");
 						char scmd[200];
 						while (1)
 						{
 							system("cls");
 							printf("请输入DOS命令。\n");
+							printf("输入exit返回主菜单。\n");
 							printf("输入:");
 							scanf_s("%s", scmd, 200);
 							if (_stricmp(scmd, "exit") != 0)
@@ -947,7 +935,6 @@ int main()
 							}
 							else
 							{
-								thesecondbackover();
 								break;
 							}
 							thebackover();
@@ -991,7 +978,7 @@ int main()
 					else if (_stricmp(str, "DKWJ") == 0)
 					{
 						FILE *fp;
-						if ((fp = fopen("C:\\Windows\\explorer.exe", "r+")) == NULL)
+						if (!(fp = fopen("C:\\Windows\\explorer.exe", "r+")) == NULL)
 						{
 							printf("Error!");
 							thebackover();
