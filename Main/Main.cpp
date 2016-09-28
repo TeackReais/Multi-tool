@@ -1012,9 +1012,9 @@ int main()
 						int *NUM3 = &NUM1;
 						NUM1 = 10;
 						NUM2 = NUM1;
-						printf("Now num1=%d,num2=%d,num3=%o,num3位于%p.\n", NUM1, NUM2, NUM3, NUM3);
+						printf("Now num1=%d,num2=%d,num3=%X,num3位于%p.\n", NUM1, NUM2, NUM3, NUM3);
 						NUM1++;
-						printf("After Add,now num1=%d,num2=%d,num3=%o,num3位于%p.\n", NUM1, NUM2, NUM3, NUM3);
+						printf("After Add,now num1=%d,num2=%d,num3=%X,num3位于%p.\n", NUM1, NUM2, NUM3, NUM3);
 						HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
 						SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
 						printf("按");
