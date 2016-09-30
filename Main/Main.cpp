@@ -6,7 +6,8 @@
 #include "stdafx.h"
 #include "stdafx.cpp"
 #include "psapi.h"  
-#include <fstream>
+#define SHUTDOWNCOUNTDOWN ".\\CountDownShutdown.exe"
+#define RESTARTCOUNTDOWN ".\\CountDownRestart.exe"
 #define SPACE ' '
 #define RNTER '\n'
 #pragma warning(disable:4244)  //忽略转换错误警告4244
@@ -53,7 +54,9 @@ int main()
 			system("echo @(list)>>.\\logs\\Multi-tool.log");
 			system("cls");
 			theshow();
+			SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN);
 			printf("输入：");
+			SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
 			scanf_s("%s", str, 10);
 			{
 				if (_stricmp(str, "C") == 0)
@@ -974,6 +977,7 @@ int main()
 					printf("输入:");
 					scanf_s("%s", whattodo, 200);
 					printf("是否需要增加参数(例如shutdown (-f) (-s) (-t) (0)，\n最多支持增加10个参数),如果不需要，请输入( @over )。\n");
+					printf("输入:");
 					scanf_s("%s", doyouneedaddcanshu1, 200);
 					if (_stricmp(doyouneedaddcanshu1, "@over") == 0)
 					{
@@ -1009,6 +1013,7 @@ int main()
 					else
 					{
 						printf("是否需要增加第2个参数(例如shutdown (-f) (-s) (-t) (0)，\n最多支持增加10个参数),如果不需要，请输入( @over )。\n");
+						printf("输入:");
 						scanf_s("%s", doyouneedaddcanshu2, 200);
 						if (_stricmp(doyouneedaddcanshu2, "@over") == 0)
 						{
@@ -1046,6 +1051,7 @@ int main()
 						else
 						{
 							printf("是否需要增加第3个参数(例如shutdown (-f) (-s) (-t) (0)，\n最多支持增加10个参数),如果不需要，请输入( @over )。\n");
+							printf("输入:");
 							scanf_s("%s", doyouneedaddcanshu3, 200);
 							if (_stricmp(doyouneedaddcanshu3, "@over") == 0)
 							{
@@ -1085,6 +1091,7 @@ int main()
 							else
 							{
 								printf("是否需要增加第4个参数(例如shutdown (-f) (-s) (-t) (0)，\n最多支持增加10个参数),如果不需要，请输入( @over )。\n");
+								printf("输入:");
 								scanf_s("%s", doyouneedaddcanshu4, 200);
 								if (_stricmp(doyouneedaddcanshu4, "@over") == 0)
 								{
@@ -1126,6 +1133,7 @@ int main()
 								else
 								{
 									printf("是否需要增加第5个参数(例如shutdown (-f) (-s) (-t) (0)，\n最多支持增加10个参数),如果不需要，请输入( @over )。\n");
+									printf("输入:");
 									scanf_s("%s", doyouneedaddcanshu5, 200);
 									if (_stricmp(doyouneedaddcanshu5, "@over") == 0)
 									{
@@ -1169,6 +1177,7 @@ int main()
 									else
 									{
 										printf("是否需要增加第6个参数(例如shutdown (-f) (-s) (-t) (0)，\n最多支持增加10个参数),如果不需要，请输入( @over )。\n");
+										printf("输入:");
 										scanf_s("%s", doyouneedaddcanshu6, 200);
 										if (_stricmp(doyouneedaddcanshu6, "@over") == 0)
 										{
@@ -1214,6 +1223,7 @@ int main()
 										else
 										{
 											printf("是否需要增加第7个参数(例如shutdown (-f) (-s) (-t) (0)，\n最多支持增加10个参数),如果不需要，请输入( @over )。\n");
+											printf("输入:");
 											scanf_s("%s", doyouneedaddcanshu7, 200);
 											if (_stricmp(doyouneedaddcanshu7, "@over") == 0)
 											{
@@ -1261,6 +1271,7 @@ int main()
 											else
 											{
 												printf("是否需要增加第8个参数(例如shutdown (-f) (-s) (-t) (0)，\n最多支持增加10个参数),如果不需要，请输入( @over )。\n");
+												printf("输入:");
 												scanf_s("%s", doyouneedaddcanshu8, 200);
 												if (_stricmp(doyouneedaddcanshu8, "@over") == 0)
 												{
@@ -1310,6 +1321,7 @@ int main()
 												else
 												{
 													printf("是否需要增加第9个参数(例如shutdown (-f) (-s) (-t) (0)，\n最多支持增加10个参数),如果不需要，请输入( @over )。\n");
+													printf("输入:");
 													scanf_s("%s", doyouneedaddcanshu9, 200);
 													if (_stricmp(doyouneedaddcanshu9, "@over") == 0)
 													{
@@ -1361,6 +1373,7 @@ int main()
 													else
 													{
 														printf("是否需要增加第10个参数(例如shutdown (-f) (-s) (-t) (0)，\n最多支持增加10个参数),如果不需要，请输入( @over )。\n");
+														printf("输入:");
 														scanf_s("%s", doyouneedaddcanshu9, 200);
 														if (_stricmp(doyouneedaddcanshu9, "@over") == 0)
 														{
@@ -1483,9 +1496,11 @@ int main()
 				else if (_stricmp(str, "DKWJ") == 0)
 				{
 					FILE *fp;
-					if (!(fp = fopen("C:\\Windows\\explorer.exe", "r+")) == NULL)
+					fp = fopen("C:\\Windows\\explorer.exe", "r+");
+					Sleep(1000);
+					if (!(fp = fopen("C:\\Windows\\sysWOW64D\\explorer.exe", "r+")) == NULL)
 					{
-						printf("Error!");
+						perror("Error!");
 						thebackover();
 						continue;
 					}
@@ -1520,13 +1535,19 @@ int main()
 					printf("Now num1=%d,num2=%d,num3=%p,num3位于%p.\n", NUM1, NUM2, NUM3, NUM3);
 					NUM1++;
 					printf("After Add,now num1=%d,num2=%d,num3=%p,num3位于%p.\n", NUM1, NUM2, NUM3, NUM3);
-					time_t thetime;
-					struct tm *thetimeinfo;
-					time(&thetime);
-					thetimeinfo = localtime(&thetime);
-					printf("%s", asctime(thetimeinfo));
-					thebackover();
-					continue;
+					FILE*fp = NULL;
+					fp = fopen(SHUTDOWNCOUNTDOWN, "r");
+					if (NULL == fp)
+					{
+						printf("error");
+						thebackover();
+						continue;
+					}
+					else
+					{
+						thebackover();
+						continue;
+					}
 				}
 				else if (_stricmp(str, "DAXIAOCESHI") == 0)
 				{
