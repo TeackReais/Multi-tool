@@ -8,7 +8,7 @@
 #include "psapi.h"  
 #include <fstream>
 #define SPACE ' '
-#define HUICHE '\n'
+#define RNTER '\n'
 #pragma warning(disable:4244)  //ºöÂÔ×ª»»´íÎó¾¯¸æ4244
 
 
@@ -19,9 +19,9 @@ void thebackover(void);
 void thecountdowndosth(char *who, char *whattodo, int numhour, int numminute, int numsecond, int least_countdown);
 void therestartover(void);
 void thetime(void);
-int main()
+int main() 
 {
-	char str4[80];
+	char str4[80]; 
 	_getcwd(str4, sizeof(str4));
 	char str[100];
 	HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
