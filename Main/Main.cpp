@@ -663,12 +663,12 @@ int main()
 						printf("请输入DOS命令。\n");
 						printf("输入exit返回主菜单。\n");
 						printf("输入:");
-						scanf_s("%s", scmd, 200);
+						gets_s(scmd, 200);
 						if (_stricmp(scmd, "exit") != 0)
 						{
 							if (system(scmd) == NULL)
 							{
-								printf("Error");
+								printf("Error.\n");
 								thesecondbackover();
 								continue;
 							}
