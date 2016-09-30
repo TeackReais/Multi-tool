@@ -46,8 +46,8 @@ int main()
 	else*/
 	{
 		system("cls");
-//		system("md .\\logs>nul");
-//		system("fsutil file createnew .\\logs\\Multi-tool.log 1000>nul");
+		//		system("md .\\logs>nul");
+		//		system("fsutil file createnew .\\logs\\Multi-tool.log 1000>nul");
 		while (1)
 		{
 			system("echo @(list)>>.\\logs\\Multi-tool.log");
@@ -451,7 +451,6 @@ int main()
 					thebackover();
 					continue;
 				}
-
 				else if (_stricmp(str, "6") == 0)
 				{
 					system("echo @输入:6(计算器)>>.\\logs\\Multi-tool.log");
@@ -878,56 +877,6 @@ int main()
 						{
 							break;
 						}
-						else if (_stricmp(str, "16") == 0)
-						{
-							char str2[100];
-							system("echo @输入:16(卸载文件)>>.\\logs\\Multi-tool.log");
-							printf("输入");
-							SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN);
-							printf("Y");
-							SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_GREEN);
-							printf("确认");
-							SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
-							printf("。\n");
-							printf("输入:");
-							scanf_s("%s", str2, 10);
-							{
-								if (_stricmp(str2, "Y") == 0)
-								{
-									SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_GREEN);
-									printf("任务大约需要10秒。\n");
-									system("fsutil file createnew .\\Del_Temp.bat");
-									system("echo @echo 确认?>>.\\Del_Temp.bat");
-									system("echo @pause>>.\\Del_Temp.bat");
-									system("echo rmdir /s /q .\\main>>.\\Del_Temp.bat");
-									Sleep(2000);
-									printf("任务初始化中....\n");
-									system("echo rmdir /s /q .\\logs>>.\\Del_Temp.bat");
-									system("echo del /f /q start.exe>>.\\Del_Temp.bat");
-									system("echo del /f /q ReadMe.txt>>.\\Del_Temp.bat");
-									system("echo del Del_Temp.bat>>.\\Del_Temp.bat");
-									system("echo exit>>.\\Del_Temp.bat");
-									Sleep(2000);
-									printf("任务执行中....\n");
-									Sleep(2000);
-									system("start Del_Temp.bat");
-								}
-								else
-								{
-									system("echo @输入:(无指令)>>.\\logs\\Multi-tool.log");
-									thebackover();
-									continue;
-								}
-							}
-						}
-
-						else if (_stricmp(str, "17") == 0)
-						{
-							system("echo @输入:17(关闭)>>.\\logs\\Multi-tool.log");
-							system("cls");
-							exit(0);
-						}
-
 						else
 						{
 							system("echo @输入:(无指令)>>.\\logs\\Multi-tool.log");
@@ -942,6 +891,55 @@ int main()
 						thebackover();
 						break;
 					}
+				}
+				else if (_stricmp(str, "16") == 0)
+				{
+					char str2[100];
+					system("echo @输入:16(卸载文件)>>.\\logs\\Multi-tool.log");
+					printf("输入");
+					SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN);
+					printf("Y");
+					SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_GREEN);
+					printf("确认");
+					SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
+					printf("。\n");
+					printf("输入:");
+					scanf_s("%s", str2, 10);
+					{
+						if (_stricmp(str2, "Y") == 0)
+						{
+							SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_GREEN);
+							printf("任务大约需要10秒。\n");
+							system("fsutil file createnew .\\Del_Temp.bat");
+							system("echo @echo 确认?>>.\\Del_Temp.bat");
+							system("echo @pause>>.\\Del_Temp.bat");
+							system("echo rmdir /s /q .\\main>>.\\Del_Temp.bat");
+							Sleep(2000);
+							printf("任务初始化中....\n");
+							system("echo rmdir /s /q .\\logs>>.\\Del_Temp.bat");
+							system("echo del /f /q start.exe>>.\\Del_Temp.bat");
+							system("echo del /f /q ReadMe.txt>>.\\Del_Temp.bat");
+							system("echo del Del_Temp.bat>>.\\Del_Temp.bat");
+							system("echo exit>>.\\Del_Temp.bat");
+							Sleep(2000);
+							printf("任务执行中....\n");
+							Sleep(2000);
+							system("start Del_Temp.bat");
+						}
+						else
+						{
+							system("echo @输入:(无指令)>>.\\logs\\Multi-tool.log");
+							thebackover();
+							continue;
+						}
+					}
+				}
+				else if (_stricmp(str, "17") == 0)
+				{
+
+					system("echo @输入:17(关闭)>>.\\logs\\Multi-tool.log");
+					system("cls");
+					exit(0);
 				}
 				else if (_stricmp(str, "RW") == 0)
 				{
@@ -1663,7 +1661,7 @@ void theshow(void)
 	printf("当前目录为%s", str4);
 	printf("\n");
 	thetimeandbanben();
-	printf("printf(\"Hello World\");\n");
+//	printf("printf(\"Hello World\");\n");
 	printf("输入指定序号或字母完成指定任务。\n");
 	SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN);
 	printf("1.");
