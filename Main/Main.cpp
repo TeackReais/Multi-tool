@@ -18,7 +18,7 @@ void theshow(void);
 void thebackover(void);
 void thecountdowndosth(char *who, char *whattodo, int numhour, int numminute, int numsecond, int least_countdown);
 void therestartover(void);
-void thetime(void);
+void thetimeandbanben(void);
 int main() 
 {
 	char str4[80]; 
@@ -29,7 +29,7 @@ int main()
 	DrawMenuBar(GetConsoleWindow());
 	system("title 多功能工具");
 	system("mode con cols=65 lines=32");
-	if (!system("taskkill /f /im start.exe") == NULL)
+/*	if (!system("taskkill /f /im start.exe") == NULL)
 	{
 		system("cls");
 		system("taskkill /f /im explorer.exe");
@@ -43,11 +43,11 @@ int main()
 		Sleep(30000);
 		exit(0);
 	}
-	else
+	else*/
 	{
 		system("cls");
-		system("md .\\logs>nul");
-		system("fsutil file createnew .\\logs\\Multi-tool.log 1000>nul");
+//		system("md .\\logs>nul");
+//		system("fsutil file createnew .\\logs\\Multi-tool.log 1000>nul");
 		while (1)
 		{
 			system("echo @(list)>>.\\logs\\Multi-tool.log");
@@ -1522,6 +1522,11 @@ int main()
 					printf("Now num1=%d,num2=%d,num3=%p,num3位于%p.\n", NUM1, NUM2, NUM3, NUM3);
 					NUM1++;
 					printf("After Add,now num1=%d,num2=%d,num3=%p,num3位于%p.\n", NUM1, NUM2, NUM3, NUM3);
+					time_t thetime;
+					struct tm *thetimeinfo;
+					time(&thetime);
+					thetimeinfo = localtime(&thetime);
+					printf("%s", asctime(thetimeinfo));
 					thebackover();
 					continue;
 				}
@@ -1574,10 +1579,13 @@ int main()
 	}
 	return 0;
 }
-void thetime(void)
+void thetimeandbanben(void)
 {
-	system("date /t");
-	system("time /t");
+	time_t thetime;
+	struct tm *thetimeinfo;
+	time(&thetime);
+	thetimeinfo = localtime(&thetime);
+	printf("系统版本为:V1.0.0.0,系统时间为:%s", asctime(thetimeinfo));
 }
 void thebackover(void)
 {
@@ -1645,18 +1653,17 @@ void thesecondbackover(void)
 }
 void theshow(void)
 {
-	void thetime(void);
+	void thetimeandbanben(void);
 	HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
 	char str4[80];
 	_getcwd(str4, sizeof(str4));
 	SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_GREEN);
-	printf("By Xu(QQ1036673441).\n");
+	printf("By QQ1036673441.\n");
 	SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN);
 	printf("当前目录为%s", str4);
 	printf("\n");
-	thetime();
+	thetimeandbanben();
 	printf("printf(\"Hello World\");\n");
-	SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
 	printf("输入指定序号或字母完成指定任务。\n");
 	SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN);
 	printf("1.");
