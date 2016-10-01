@@ -22,6 +22,8 @@ void therestartover(void);
 void thetimeandbanben(void);
 int main() 
 {
+	const char panfu[][26] = { "a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z" }; //数组从0开始,(0-25),共26个,使用时输入(0-25)
+	const char thebiaozhunnum[][100] = { 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100 };
 	char str4[80]; 
 	_getcwd(str4, sizeof(str4));
 	char str[100];
@@ -59,7 +61,7 @@ int main()
 			SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
 			scanf_s("%s", str, 10);
 			{
-				if (_stricmp(str, "C") == 0)
+				if (_stricmp(str, panfu[2]) == 0)
 				{
 					system("echo @输入:C>>.\\logs\\Multi-tool.log");
 					system("cls");
@@ -67,7 +69,7 @@ int main()
 					thebackover();
 					continue;
 				}
-				else if (_stricmp(str, "A") == 0)
+				else if (_stricmp(str, panfu[0]) == 0)
 				{
 					system("echo @输入:A>>.\\logs\\Multi-tool.log");
 					system("cls");
@@ -75,7 +77,7 @@ int main()
 					thebackover();
 					continue;
 				}
-				else if (_stricmp(str, "B") == 0)
+				else if (_stricmp(str, panfu[1]) == 0)
 				{
 					system("echo @输入:B>>.\\logs\\Multi-tool.log");
 					system("cls");
@@ -83,7 +85,7 @@ int main()
 					thebackover();
 					continue;
 				}
-				else if (_stricmp(str, "D") == 0)
+				else if (_stricmp(str, panfu[3]) == 0)
 				{
 					system("echo @输入:D>>.\\logs\\Multi-tool.log");
 					system("cls");
@@ -91,7 +93,7 @@ int main()
 					thebackover();
 					continue;
 				}
-				else if (_stricmp(str, "E") == 0)
+				else if (_stricmp(str, panfu[4]) == 0)
 				{
 					system("echo @输入:E>>.\\logs\\Multi-tool.log");
 					system("cls");
@@ -99,7 +101,7 @@ int main()
 					thebackover();
 					continue;
 				}
-				else if (_stricmp(str, "F") == 0)
+				else if (_stricmp(str, panfu[5]) == 0)
 				{
 					system("echo @输入:F>>.\\logs\\Multi-tool.log");
 					system("cls");
@@ -107,7 +109,7 @@ int main()
 					thebackover();
 					continue;
 				}
-				else if (_stricmp(str, "G") == 0)
+				else if (_stricmp(str, panfu[6]) == 0)
 				{
 					system("echo @输入:G>>.\\logs\\Multi-tool.log");
 					system("cls");
@@ -115,7 +117,7 @@ int main()
 					thebackover();
 					continue;
 				}
-				else if (_stricmp(str, "H") == 0)
+				else if (_stricmp(str, panfu[7]) == 0)
 				{
 					system("echo @输入:H>>.\\logs\\Multi-tool.log");
 					system("cls");
@@ -123,7 +125,7 @@ int main()
 					thebackover();
 					continue;
 				}
-				else if (_stricmp(str, "I") == 0)
+				else if (_stricmp(str, panfu[8]) == 0)
 				{
 					system("echo @输入:I>>.\\logs\\Multi-tool.log");
 					system("cls");
@@ -131,7 +133,7 @@ int main()
 					thebackover();
 					continue;
 				}
-				else if (_stricmp(str, "J") == 0)
+				else if (_stricmp(str, panfu[9]) == 0)
 				{
 					system("echo @输入:J>>.\\logs\\Multi-tool.log");
 					system("cls");
@@ -139,7 +141,7 @@ int main()
 					thebackover();
 					continue;
 				}
-				else if (_stricmp(str, "K") == 0)
+				else if (_stricmp(str, panfu[10]) == 0)
 				{
 					system("echo @输入:K>>.\\logs\\Multi-tool.log");
 					system("cls");
@@ -147,7 +149,7 @@ int main()
 					thebackover();
 					continue;
 				}
-				else if (_stricmp(str, "L") == 0)
+				else if (_stricmp(str, panfu[11]) == 0)
 				{
 					system("echo @输入:L>>.\\logs\\Multi-tool.log");
 					system("cls");
@@ -155,7 +157,7 @@ int main()
 					thebackover();
 					continue;
 				}
-				else if (_stricmp(str, "M") == 0)
+				else if (_stricmp(str, panfu[12]) == 0)
 				{
 					system("echo @输入:M>>.\\logs\\Multi-tool.log");
 					system("cls");
@@ -163,7 +165,7 @@ int main()
 					thebackover();
 					continue;
 				}
-				else if (_stricmp(str, "N") == 0)
+				else if (_stricmp(str, panfu[13]) == 0)
 				{
 					system("echo @输入:N>>.\\logs\\Multi-tool.log");
 					system("cls");
@@ -171,7 +173,7 @@ int main()
 					thebackover();
 					continue;
 				}
-				else if (_stricmp(str, "O") == 0)
+				else if (_stricmp(str, panfu[14]) == 0)
 				{
 					system("echo @输入:O>>.\\logs\\Multi-tool.log");
 					system("cls");
@@ -179,7 +181,7 @@ int main()
 					thebackover();
 					continue;
 				}
-				else if (_stricmp(str, "P") == 0)
+				else if (_stricmp(str, panfu[15]) == 0)
 				{
 					system("echo @输入:P>>.\\logs\\Multi-tool.log");
 					system("cls");
@@ -187,7 +189,7 @@ int main()
 					thebackover();
 					continue;
 				}
-				else if (_stricmp(str, "Q") == 0)
+				else if (_stricmp(str, panfu[16]) == 0)
 				{
 					system("echo @输入:Q>>.\\logs\\Multi-tool.log");
 					system("cls");
@@ -195,7 +197,7 @@ int main()
 					thebackover();
 					continue;
 				}
-				else if (_stricmp(str, "R") == 0)
+				else if (_stricmp(str, panfu[17]) == 0)
 				{
 					system("echo @输入:R>>.\\logs\\Multi-tool.log");
 					system("cls");
@@ -203,7 +205,7 @@ int main()
 					thebackover();
 					continue;
 				}
-				else if (_stricmp(str, "S") == 0)
+				else if (_stricmp(str, panfu[18]) == 0)
 				{
 					system("echo @输入:S>>.\\logs\\Multi-tool.log");
 					system("cls");
@@ -211,7 +213,7 @@ int main()
 					thebackover();
 					continue;
 				}
-				else if (_stricmp(str, "T") == 0)
+				else if (_stricmp(str, panfu[19]) == 0)
 				{
 					system("echo @输入:T>>.\\logs\\Multi-tool.log");
 					system("cls");
@@ -219,7 +221,7 @@ int main()
 					thebackover();
 					continue;
 				}
-				else if (_stricmp(str, "U") == 0)
+				else if (_stricmp(str, panfu[20]) == 0)
 				{
 					system("echo @输入:U>>.\\logs\\Multi-tool.log");
 					system("cls");
@@ -227,7 +229,7 @@ int main()
 					thebackover();
 					continue;
 				}
-				else if (_stricmp(str, "V") == 0)
+				else if (_stricmp(str, panfu[21]) == 0)
 				{
 					system("echo @输入:V>>.\\logs\\Multi-tool.log");
 					system("cls");
@@ -235,7 +237,7 @@ int main()
 					thebackover();
 					continue;
 				}
-				else if (_stricmp(str, "W") == 0)
+				else if (_stricmp(str, panfu[22]) == 0)
 				{
 					system("echo @输入:W>>.\\logs\\Multi-tool.log");
 					system("cls");
@@ -243,7 +245,7 @@ int main()
 					thebackover();
 					continue;
 				}
-				else if (_stricmp(str, "X") == 0)
+				else if (_stricmp(str, panfu[23]) == 0)
 				{
 					system("echo @输入:X>>.\\logs\\Multi-tool.log");
 					system("cls");
@@ -251,7 +253,7 @@ int main()
 					thebackover();
 					continue;
 				}
-				else if (_stricmp(str, "Y") == 0)
+				else if (_stricmp(str, panfu[24]) == 0)
 				{
 					system("echo @输入:Y>>.\\logs\\Multi-tool.log");
 					system("cls");
@@ -259,7 +261,7 @@ int main()
 					thebackover();
 					continue;
 				}
-				else if (_stricmp(str, "Z") == 0)
+				else if (_stricmp(str, panfu[25]) == 0)
 				{
 					system("echo @输入:Z>>.\\logs\\Multi-tool.log");
 					system("cls");
@@ -267,7 +269,7 @@ int main()
 					thebackover();
 					continue;
 				}
-				else if (_stricmp(str, "1") == 0)
+				else if (_stricmp(str, thebiaozhunnum[0]) == 0)
 				{
 					char str3[100];
 					system("echo @输入:1(30S关机).>>.\\logs\\Multi-tool.log");
@@ -324,7 +326,7 @@ int main()
 						}
 					}
 				}
-				else if (_stricmp(str, "2") == 0)
+				else if (_stricmp(str, thebiaozhunnum[1]) == 0)
 				{
 					char str3[100];
 					system("echo @输入:2(30S重启)>>.\\logs\\Multi-tool.log");
@@ -380,7 +382,7 @@ int main()
 						}
 					}
 				}
-				else if (_stricmp(str, "3") == 0)
+				else if (_stricmp(str, thebiaozhunnum[2]) == 0)
 				{
 					system("echo @输入:3(取消关机或重启)>>.\\logs\\Multi-tool.log");
 					system("cls");
@@ -438,7 +440,7 @@ int main()
 						continue;
 					}
 				}
-				else if (_stricmp(str, "4") == 0)
+				else if (_stricmp(str, thebiaozhunnum[3]) == 0)
 				{
 					system("echo @输入:4(任务管理器)>>.\\logs\\Multi-tool.log");
 					system("cls");
@@ -446,7 +448,7 @@ int main()
 					thebackover();
 					continue;
 				}
-				else if (_stricmp(str, "5") == 0)
+				else if (_stricmp(str, thebiaozhunnum[4]) == 0)
 				{
 					system("echo @输入:5(控制面板)>>.\\logs\\Multi-tool.log");
 					system("cls");
@@ -454,7 +456,7 @@ int main()
 					thebackover();
 					continue;
 				}
-				else if (_stricmp(str, "6") == 0)
+				else if (_stricmp(str, thebiaozhunnum[5]) == 0)
 				{
 					system("echo @输入:6(计算器)>>.\\logs\\Multi-tool.log");
 					system("cls");
@@ -462,7 +464,7 @@ int main()
 					thebackover();
 					continue;
 				}
-				else if (_stricmp(str, "7") == 0)
+				else if (_stricmp(str, thebiaozhunnum[6]) == 0)
 				{
 					system("echo @输入:7(注册表)>>.\\logs\\Multi-tool.log");
 					system("cls");
@@ -470,7 +472,7 @@ int main()
 					thebackover();
 					continue;
 				}
-				else if (_stricmp(str, "8") == 0)
+				else if (_stricmp(str, thebiaozhunnum[7]) == 0)
 				{
 					system("echo @输入:8(音乐)>>.\\logs\\Multi-tool.log");
 					system("cls");
@@ -497,14 +499,14 @@ int main()
 					thebackover();
 					continue;
 				}
-				else if (_stricmp(str, "9") == 0)
+				else if (_stricmp(str, thebiaozhunnum[8]) == 0)
 				{
 					system("echo @输入:9(IP信息)>>.\\logs\\Multi-tool.log");
 					system("cls");
 					system("ipconfig");
 					thebackover();
 				}
-				else if (_stricmp(str, "10") == 0)
+				else if (_stricmp(str, thebiaozhunnum[9]) == 0)
 				{
 					system("echo @输入:10(自定义关机)>>.\\logs\\Multi-tool.log");
 					DeleteMenu(GetSystemMenu(GetConsoleWindow(), TRUE), SC_CLOSE, MF_BYCOMMAND);
@@ -570,7 +572,7 @@ int main()
 						}
 					}
 				}
-				else if (_stricmp(str, "11") == 0)
+				else if (_stricmp(str, thebiaozhunnum[10]) == 0)
 				{
 					system("echo @输入:11(自定义重启)>>.\\logs\\Multi-tool.log");
 					DeleteMenu(GetSystemMenu(GetConsoleWindow(), TRUE), SC_CLOSE, MF_BYCOMMAND);
@@ -638,7 +640,7 @@ int main()
 						}
 					}
 				}
-				else if (_stricmp(str, "12") == 0)
+				else if (_stricmp(str, thebiaozhunnum[11]) == 0)
 				{
 					system("echo @输入:12(CMD)>>.\\logs\\Multi-tool.log");
 					system("cls");
@@ -652,7 +654,7 @@ int main()
 					system("cmd");
 					continue;
 				}
-				else if (_stricmp(str, "13") == 0)
+				else if (_stricmp(str, thebiaozhunnum[12]) == 0)
 				{
 					system("echo @输入:13(执行DOS)>>.\\logs\\Multi-tool.log");
 					system("cls");
@@ -686,7 +688,7 @@ int main()
 						break;
 					}
 				}
-				else if (_stricmp(str, "14") == 0)
+				else if (_stricmp(str, thebiaozhunnum[13]) == 0)
 				{
 					system("echo @输入:14(修复系统文件)>>.\\logs\\Multi-tool.log");
 					system("cls");
@@ -694,7 +696,7 @@ int main()
 					thebackover();
 					continue;
 				}
-				else if (_stricmp(str, "15") == 0)
+				else if (_stricmp(str, thebiaozhunnum[14]) == 0)
 				{
 					while (1)
 					{
@@ -895,7 +897,7 @@ int main()
 						break;
 					}
 				}
-				else if (_stricmp(str, "16") == 0)
+				else if (_stricmp(str, thebiaozhunnum[15]) == 0)
 				{
 					char str2[100];
 					system("echo @输入:16(卸载文件)>>.\\logs\\Multi-tool.log");
@@ -937,7 +939,7 @@ int main()
 						}
 					}
 				}
-				else if (_stricmp(str, "17") == 0)
+				else if (_stricmp(str, thebiaozhunnum[16]) == 0)
 				{
 
 					system("echo @输入:17(关闭)>>.\\logs\\Multi-tool.log");
@@ -1065,6 +1067,11 @@ int main()
 					printf("Now num1=%d,num2=%d,num3=%p,num3位于%p.\n", NUM1, NUM2, NUM3, NUM3);
 					NUM1++;
 					printf("After Add,now num1=%d,num2=%d,num3=%p,num3位于%p.\n", NUM1, NUM2, NUM3, NUM3);
+					Sleep(1000);
+					const char dingzhinum[][2] = { 5,10 };
+					const char *thep1 = dingzhinum[1];
+					const char *thep2 = dingzhinum[2];
+					printf("dingzhinum1=%d,位于=%cp,dingzhinum2=%d,位于%cp", dingzhinum[1], thep1, dingzhinum[2], thep2);
 //					FILE *fp1 = fopen(".\\test.txt","r+");
 //					fgets(fp1, 1, thetxt);
 /*					FILE*fp = NULL;
@@ -1080,6 +1087,7 @@ int main()
 						thebackover();
 						continue;
 					}*/
+					thebackover();
 				}
 				else if (_stricmp(str, "DAXIAOCESHI") == 0)
 				{
