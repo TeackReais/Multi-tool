@@ -946,41 +946,20 @@ int main()
 				}
 				else if (_stricmp(str, "RW") == 0)
 				{
-					system("cls");
-					char thetime[200];
-					char KONGGE[200] = " ";
-					char KONGGE2[200] = " ";
-					char KONGGE3[200] = " ";
-					char KONGGE4[200] = " ";
-					char KONGGE5[200] = " ";
-					char KONGGE6[200] = " ";
-					char KONGGE7[200] = " ";
-					char KONGGE8[200] = " ";
-					char KONGGE9[200] = " ";
-					char KONGGE10[200] = " ";
-					char KONGGE11[200] = " ";
-					char whattodo[200];
-					char theat[200] = "at";
-					char doyouneedaddcanshu1[200];
-					char doyouneedaddcanshu2[200];
-					char doyouneedaddcanshu3[200];
-					char doyouneedaddcanshu4[200];
-					char doyouneedaddcanshu5[200];
-					char doyouneedaddcanshu6[200];
-					char doyouneedaddcanshu7[200];
-					char doyouneedaddcanshu8[200];
-					char doyouneedaddcanshu9[200];
-					printf("请输入工作时间。(例如:19:25)\n");
-					printf("输入:");
-					scanf_s("%s", thetime, 200);
-					printf("请输入工作任务。(仅支持DOS(CMD)命令)\n");
-					printf("输入:");
-					scanf_s("%s", whattodo, 200);
-					printf("是否需要增加参数(例如shutdown (-f) (-s) (-t) (0)，\n最多支持增加10个参数),如果不需要，请输入( @over )。\n");
-					printf("输入:");
-					scanf_s("%s", doyouneedaddcanshu1, 200);
-					if (_stricmp(doyouneedaddcanshu1, "@over") == 0)
+					while (1)
 					{
+						system("cls");
+						char thetime[200];
+						char KONGGE[200] = " ";
+						char KONGGE2[200] = " ";
+						char whattodo[200];
+						char theat[200] = "at";
+						printf("请输入工作时间。(例如:19:25)\n");
+						printf("输入:");
+						scanf_s("%s", thetime, 200);
+						printf("请输入工作任务。(仅支持DOS(CMD)命令)\n");
+						printf("输入:");
+						scanf_s("%s", whattodo, 200);
 						strcat_s(KONGGE, whattodo);
 						strcat_s(thetime, KONGGE);
 						strcat_s(KONGGE2, thetime);
@@ -996,491 +975,41 @@ int main()
 						SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_GREEN);
 						printf("确认");
 						SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
+						printf("输入");
+						SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN);
+						printf("NO");
+						SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_GREEN);
+						printf("重新输入");
+						SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
 						printf("。\n");
+						SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
+						printf("输入");
+						SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN);
+						printf("其他字符");
+						SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_GREEN);
+						printf("返回主菜单");
+						SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
+						printf("。\n");
+						Sleep(3000);
+						printf("输入:");
 						scanf_s("%s", areyouready, 200);
 						if (_stricmp(areyouready, "YES") == 0)
 						{
 							system(theat);
 							thebackover();
+							break;
+						}
+						else if (_stricmp(areyouready, "NO") == 0)
+						{
+							thesecondbackover();
 							continue;
 						}
 						else
 						{
 							thebackover();
-							continue;
+							break;
 						}
-					}
-					else
-					{
-						printf("是否需要增加第2个参数(例如shutdown (-f) (-s) (-t) (0)，\n最多支持增加10个参数),如果不需要，请输入( @over )。\n");
-						printf("输入:");
-						scanf_s("%s", doyouneedaddcanshu2, 200);
-						if (_stricmp(doyouneedaddcanshu2, "@over") == 0)
-						{
-							strcat_s(KONGGE3, doyouneedaddcanshu1);
-							strcat_s(whattodo, KONGGE3);
-							strcat_s(KONGGE, whattodo);
-							strcat_s(thetime, KONGGE);
-							strcat_s(KONGGE2, thetime);
-							strcat_s(theat, KONGGE2);
-							char areyouready[200];
-							HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
-							printf("%s任务将在%s实施。\n", whattodo, thetime);
-							printf("你输入的是%s。\n", theat);
-							SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
-							printf("输入");
-							SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN);
-							printf("YES");
-							SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_GREEN);
-							printf("确认");
-							SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
-							printf("。\n");
-							scanf_s("%s", areyouready, 200);
-							if (_stricmp(areyouready, "YES") == 0)
-							{
-								system(theat);
-								thebackover();
-								continue;
-							}
-							else
-							{
-								thebackover();
-								continue;
-							}
-						}
-						else
-						{
-							printf("是否需要增加第3个参数(例如shutdown (-f) (-s) (-t) (0)，\n最多支持增加10个参数),如果不需要，请输入( @over )。\n");
-							printf("输入:");
-							scanf_s("%s", doyouneedaddcanshu3, 200);
-							if (_stricmp(doyouneedaddcanshu3, "@over") == 0)
-							{
-								strcat_s(KONGGE4, doyouneedaddcanshu2);
-								strcat_s(doyouneedaddcanshu1, KONGGE4);
-								strcat_s(KONGGE3, doyouneedaddcanshu1);
-								strcat_s(whattodo, KONGGE3);
-								strcat_s(KONGGE, whattodo);
-								strcat_s(thetime, KONGGE);
-								strcat_s(KONGGE2, thetime);
-								strcat_s(theat, KONGGE2);
-								char areyouready[200];
-								HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
-								printf("%s任务将在%s实施。\n", whattodo, thetime);
-								printf("你输入的是%s。\n", theat);
-								SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
-								printf("输入");
-								SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN);
-								printf("YES");
-								SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_GREEN);
-								printf("确认");
-								SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
-								printf("。\n");
-								scanf_s("%s", areyouready, 200);
-								if (_stricmp(areyouready, "YES") == 0)
-								{
-									system(theat);
-									thebackover();
-									continue;
-								}
-								else
-								{
-									thebackover();
-									continue;
-								}
-							}
-							else
-							{
-								printf("是否需要增加第4个参数(例如shutdown (-f) (-s) (-t) (0)，\n最多支持增加10个参数),如果不需要，请输入( @over )。\n");
-								printf("输入:");
-								scanf_s("%s", doyouneedaddcanshu4, 200);
-								if (_stricmp(doyouneedaddcanshu4, "@over") == 0)
-								{
-									strcat_s(KONGGE5, doyouneedaddcanshu3);
-									strcat_s(doyouneedaddcanshu4, KONGGE5);
-									strcat_s(KONGGE4, doyouneedaddcanshu2);
-									strcat_s(doyouneedaddcanshu1, KONGGE4);
-									strcat_s(KONGGE3, doyouneedaddcanshu1);
-									strcat_s(whattodo, KONGGE3);
-									strcat_s(KONGGE, whattodo);
-									strcat_s(thetime, KONGGE);
-									strcat_s(KONGGE2, thetime);
-									strcat_s(theat, KONGGE2);
-									char areyouready[200];
-									HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
-									printf("%s任务将在%s实施。\n", whattodo, thetime);
-									printf("你输入的是%s。\n", theat);
-									SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
-									printf("输入");
-									SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN);
-									printf("YES");
-									SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_GREEN);
-									printf("确认");
-									SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
-									printf("。\n");
-									scanf_s("%s", areyouready, 200);
-									if (_stricmp(areyouready, "YES") == 0)
-									{
-										system(theat);
-										thebackover();
-										continue;
-									}
-									else
-									{
-										thebackover();
-										continue;
-									}
-								}
-								else
-								{
-									printf("是否需要增加第5个参数(例如shutdown (-f) (-s) (-t) (0)，\n最多支持增加10个参数),如果不需要，请输入( @over )。\n");
-									printf("输入:");
-									scanf_s("%s", doyouneedaddcanshu5, 200);
-									if (_stricmp(doyouneedaddcanshu5, "@over") == 0)
-									{
-										strcat_s(KONGGE6, doyouneedaddcanshu4);
-										strcat_s(doyouneedaddcanshu3, KONGGE6);
-										strcat_s(KONGGE5, doyouneedaddcanshu3);
-										strcat_s(doyouneedaddcanshu4, KONGGE5);
-										strcat_s(KONGGE4, doyouneedaddcanshu2);
-										strcat_s(doyouneedaddcanshu1, KONGGE4);
-										strcat_s(KONGGE3, doyouneedaddcanshu1);
-										strcat_s(whattodo, KONGGE3);
-										strcat_s(KONGGE, whattodo);
-										strcat_s(thetime, KONGGE);
-										strcat_s(KONGGE2, thetime);
-										strcat_s(theat, KONGGE2);
-										char areyouready[200];
-										HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
-										printf("%s任务将在%s实施。\n", whattodo, thetime);
-										printf("你输入的是%s。\n", theat);
-										SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
-										printf("输入");
-										SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN);
-										printf("YES");
-										SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_GREEN);
-										printf("确认");
-										SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
-										printf("。\n");
-										scanf_s("%s", areyouready, 200);
-										if (_stricmp(areyouready, "YES") == 0)
-										{
-											system(theat);
-											thebackover();
-											continue;
-										}
-										else
-										{
-											thebackover();
-											continue;
-										}
-									}
-									else
-									{
-										printf("是否需要增加第6个参数(例如shutdown (-f) (-s) (-t) (0)，\n最多支持增加10个参数),如果不需要，请输入( @over )。\n");
-										printf("输入:");
-										scanf_s("%s", doyouneedaddcanshu6, 200);
-										if (_stricmp(doyouneedaddcanshu6, "@over") == 0)
-										{
-											strcat_s(KONGGE7, doyouneedaddcanshu5);
-											strcat_s(doyouneedaddcanshu4, KONGGE7);
-											strcat_s(KONGGE6, doyouneedaddcanshu4);
-											strcat_s(doyouneedaddcanshu3, KONGGE6);
-											strcat_s(KONGGE5, doyouneedaddcanshu3);
-											strcat_s(doyouneedaddcanshu4, KONGGE5);
-											strcat_s(KONGGE4, doyouneedaddcanshu2);
-											strcat_s(doyouneedaddcanshu1, KONGGE4);
-											strcat_s(KONGGE3, doyouneedaddcanshu1);
-											strcat_s(whattodo, KONGGE3);
-											strcat_s(KONGGE, whattodo);
-											strcat_s(thetime, KONGGE);
-											strcat_s(KONGGE2, thetime);
-											strcat_s(theat, KONGGE2);
-											char areyouready[200];
-											HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
-											printf("%s任务将在%s实施。\n", whattodo, thetime);
-											printf("你输入的是%s。\n", theat);
-											SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
-											printf("输入");
-											SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN);
-											printf("YES");
-											SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_GREEN);
-											printf("确认");
-											SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
-											printf("。\n");
-											scanf_s("%s", areyouready, 200);
-											if (_stricmp(areyouready, "YES") == 0)
-											{
-												system(theat);
-												thebackover();
-												continue;
-											}
-											else
-											{
-												thebackover();
-												continue;
-											}
-										}
-										else
-										{
-											printf("是否需要增加第7个参数(例如shutdown (-f) (-s) (-t) (0)，\n最多支持增加10个参数),如果不需要，请输入( @over )。\n");
-											printf("输入:");
-											scanf_s("%s", doyouneedaddcanshu7, 200);
-											if (_stricmp(doyouneedaddcanshu7, "@over") == 0)
-											{
-												strcat_s(KONGGE8, doyouneedaddcanshu6);
-												strcat_s(doyouneedaddcanshu5, KONGGE8);
-												strcat_s(KONGGE7, doyouneedaddcanshu5);
-												strcat_s(doyouneedaddcanshu4, KONGGE7);
-												strcat_s(KONGGE6, doyouneedaddcanshu4);
-												strcat_s(doyouneedaddcanshu3, KONGGE6);
-												strcat_s(KONGGE5, doyouneedaddcanshu3);
-												strcat_s(doyouneedaddcanshu4, KONGGE5);
-												strcat_s(KONGGE4, doyouneedaddcanshu2);
-												strcat_s(doyouneedaddcanshu1, KONGGE4);
-												strcat_s(KONGGE3, doyouneedaddcanshu1);
-												strcat_s(whattodo, KONGGE3);
-												strcat_s(KONGGE, whattodo);
-												strcat_s(thetime, KONGGE);
-												strcat_s(KONGGE2, thetime);
-												strcat_s(theat, KONGGE2);
-												char areyouready[200];
-												HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
-												printf("%s任务将在%s实施。\n", whattodo, thetime);
-												printf("你输入的是%s。\n", theat);
-												SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
-												printf("输入");
-												SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN);
-												printf("YES");
-												SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_GREEN);
-												printf("确认");
-												SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
-												printf("。\n");
-												scanf_s("%s", areyouready, 200);
-												if (_stricmp(areyouready, "YES") == 0)
-												{
-													system(theat);
-													thebackover();
-													continue;
-												}
-												else
-												{
-													thebackover();
-													continue;
-												}
-											}
-											else
-											{
-												printf("是否需要增加第8个参数(例如shutdown (-f) (-s) (-t) (0)，\n最多支持增加10个参数),如果不需要，请输入( @over )。\n");
-												printf("输入:");
-												scanf_s("%s", doyouneedaddcanshu8, 200);
-												if (_stricmp(doyouneedaddcanshu8, "@over") == 0)
-												{
-													strcat_s(KONGGE9, doyouneedaddcanshu7);
-													strcat_s(doyouneedaddcanshu6, KONGGE9);
-													strcat_s(KONGGE8, doyouneedaddcanshu6);
-													strcat_s(doyouneedaddcanshu5, KONGGE8);
-													strcat_s(KONGGE7, doyouneedaddcanshu5);
-													strcat_s(doyouneedaddcanshu4, KONGGE7);
-													strcat_s(KONGGE6, doyouneedaddcanshu4);
-													strcat_s(doyouneedaddcanshu3, KONGGE6);
-													strcat_s(KONGGE5, doyouneedaddcanshu3);
-													strcat_s(doyouneedaddcanshu4, KONGGE5);
-													strcat_s(KONGGE4, doyouneedaddcanshu2);
-													strcat_s(doyouneedaddcanshu1, KONGGE4);
-													strcat_s(KONGGE3, doyouneedaddcanshu1);
-													strcat_s(whattodo, KONGGE3);
-													strcat_s(KONGGE, whattodo);
-													strcat_s(thetime, KONGGE);
-													strcat_s(KONGGE2, thetime);
-													strcat_s(theat, KONGGE2);
-													char areyouready[200];
-													HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
-													printf("%s任务将在%s实施。\n", whattodo, thetime);
-													printf("你输入的是%s。\n", theat);
-													SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
-													printf("输入");
-													SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN);
-													printf("YES");
-													SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_GREEN);
-													printf("确认");
-													SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
-													printf("。\n");
-													scanf_s("%s", areyouready, 200);
-													if (_stricmp(areyouready, "YES") == 0)
-													{
-														system(theat);
-														thebackover();
-														continue;
-													}
-													else
-													{
-														thebackover();
-														continue;
-													}
-												}
-												else
-												{
-													printf("是否需要增加第9个参数(例如shutdown (-f) (-s) (-t) (0)，\n最多支持增加10个参数),如果不需要，请输入( @over )。\n");
-													printf("输入:");
-													scanf_s("%s", doyouneedaddcanshu9, 200);
-													if (_stricmp(doyouneedaddcanshu9, "@over") == 0)
-													{
-														strcat_s(KONGGE10, doyouneedaddcanshu8);
-														strcat_s(doyouneedaddcanshu7, KONGGE10);
-														strcat_s(KONGGE9, doyouneedaddcanshu7);
-														strcat_s(doyouneedaddcanshu6, KONGGE9);
-														strcat_s(KONGGE8, doyouneedaddcanshu6);
-														strcat_s(doyouneedaddcanshu5, KONGGE8);
-														strcat_s(KONGGE7, doyouneedaddcanshu5);
-														strcat_s(doyouneedaddcanshu4, KONGGE7);
-														strcat_s(KONGGE6, doyouneedaddcanshu4);
-														strcat_s(doyouneedaddcanshu3, KONGGE6);
-														strcat_s(KONGGE5, doyouneedaddcanshu3);
-														strcat_s(doyouneedaddcanshu4, KONGGE5);
-														strcat_s(KONGGE4, doyouneedaddcanshu2);
-														strcat_s(doyouneedaddcanshu1, KONGGE4);
-														strcat_s(KONGGE3, doyouneedaddcanshu1);
-														strcat_s(whattodo, KONGGE3);
-														strcat_s(KONGGE, whattodo);
-														strcat_s(thetime, KONGGE);
-														strcat_s(KONGGE2, thetime);
-														strcat_s(theat, KONGGE2);
-														char areyouready[200];
-														HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
-														printf("%s任务将在%s实施。\n", whattodo, thetime);
-														printf("你输入的是%s。\n", theat);
-														SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
-														printf("输入");
-														SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN);
-														printf("YES");
-														SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_GREEN);
-														printf("确认");
-														SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
-														printf("。\n");
-														scanf_s("%s", areyouready, 200);
-														if (_stricmp(areyouready, "YES") == 0)
-														{
-															system(theat);
-															thebackover();
-															continue;
-														}
-														else
-														{
-															thebackover();
-															continue;
-														}
-													}
-													else
-													{
-														printf("是否需要增加第10个参数(例如shutdown (-f) (-s) (-t) (0)，\n最多支持增加10个参数),如果不需要，请输入( @over )。\n");
-														printf("输入:");
-														scanf_s("%s", doyouneedaddcanshu9, 200);
-														if (_stricmp(doyouneedaddcanshu9, "@over") == 0)
-														{
-															strcat_s(KONGGE11, doyouneedaddcanshu9);
-															strcat_s(doyouneedaddcanshu8, KONGGE11);
-															strcat_s(KONGGE10, doyouneedaddcanshu8);
-															strcat_s(doyouneedaddcanshu7, KONGGE10);
-															strcat_s(KONGGE9, doyouneedaddcanshu7);
-															strcat_s(doyouneedaddcanshu6, KONGGE9);
-															strcat_s(KONGGE8, doyouneedaddcanshu6);
-															strcat_s(doyouneedaddcanshu5, KONGGE8);
-															strcat_s(KONGGE7, doyouneedaddcanshu5);
-															strcat_s(doyouneedaddcanshu4, KONGGE7);
-															strcat_s(KONGGE6, doyouneedaddcanshu4);
-															strcat_s(doyouneedaddcanshu3, KONGGE6);
-															strcat_s(KONGGE5, doyouneedaddcanshu3);
-															strcat_s(doyouneedaddcanshu4, KONGGE5);
-															strcat_s(KONGGE4, doyouneedaddcanshu2);
-															strcat_s(doyouneedaddcanshu1, KONGGE4);
-															strcat_s(KONGGE3, doyouneedaddcanshu1);
-															strcat_s(whattodo, KONGGE3);
-															strcat_s(KONGGE, whattodo);
-															strcat_s(thetime, KONGGE);
-															strcat_s(KONGGE2, thetime);
-															strcat_s(theat, KONGGE2);
-															char areyouready[200];
-															HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
-															printf("%s任务将在%s实施。\n", whattodo, thetime);
-															printf("你输入的是%s。\n", theat);
-															SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
-															printf("输入");
-															SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN);
-															printf("YES");
-															SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_GREEN);
-															printf("确认");
-															SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
-															printf("。\n");
-															scanf_s("%s", areyouready, 200);
-															if (_stricmp(areyouready, "YES") == 0)
-															{
-																system(theat);
-																thebackover();
-																continue;
-															}
-															else
-															{
-																thebackover();
-																continue;
-															}
-														}
-														else
-														{
-															strcat_s(KONGGE11, doyouneedaddcanshu9);
-															strcat_s(doyouneedaddcanshu8, KONGGE11);
-															strcat_s(KONGGE10, doyouneedaddcanshu8);
-															strcat_s(doyouneedaddcanshu7, KONGGE10);
-															strcat_s(KONGGE9, doyouneedaddcanshu7);
-															strcat_s(doyouneedaddcanshu6, KONGGE9);
-															strcat_s(KONGGE8, doyouneedaddcanshu6);
-															strcat_s(doyouneedaddcanshu5, KONGGE8);
-															strcat_s(KONGGE7, doyouneedaddcanshu5);
-															strcat_s(doyouneedaddcanshu4, KONGGE7);
-															strcat_s(KONGGE6, doyouneedaddcanshu4);
-															strcat_s(doyouneedaddcanshu3, KONGGE6);
-															strcat_s(KONGGE5, doyouneedaddcanshu3);
-															strcat_s(doyouneedaddcanshu4, KONGGE5);
-															strcat_s(KONGGE4, doyouneedaddcanshu2);
-															strcat_s(doyouneedaddcanshu1, KONGGE4);
-															strcat_s(KONGGE3, doyouneedaddcanshu1);
-															strcat_s(whattodo, KONGGE3);
-															strcat_s(KONGGE, whattodo);
-															strcat_s(thetime, KONGGE);
-															strcat_s(KONGGE2, thetime);
-															strcat_s(theat, KONGGE2);
-															char areyouready[200];
-															HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
-															printf("%s任务将在%s实施。\n", whattodo, thetime);
-															printf("你输入的是%s。\n", theat);
-															SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
-															printf("输入");
-															SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN);
-															printf("YES");
-															SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_GREEN);
-															printf("确认");
-															SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
-															printf("。\n");
-															scanf_s("%s", areyouready, 200);
-															if (_stricmp(areyouready, "YES") == 0)
-															{
-																system(theat);
-																thebackover();
-																continue;
-															}
-															else
-															{
-																thebackover();
-																continue;
-															}
-														}
-													}
-												}
-											}
-										}
-									}
-								}
-							}
-						}
+						continue;
 					}
 				}
 				else if (_stricmp(str, "MZCS") == 0)
@@ -1530,12 +1059,15 @@ int main()
 					int NUM1;
 					int NUM2;
 					int *NUM3 = &NUM1;
+//					char thetxt[200];
 					NUM1 = 10;
 					NUM2 = NUM1;
 					printf("Now num1=%d,num2=%d,num3=%p,num3位于%p.\n", NUM1, NUM2, NUM3, NUM3);
 					NUM1++;
 					printf("After Add,now num1=%d,num2=%d,num3=%p,num3位于%p.\n", NUM1, NUM2, NUM3, NUM3);
-					FILE*fp = NULL;
+//					FILE *fp1 = fopen(".\\test.txt","r+");
+//					fgets(fp1, 1, thetxt);
+/*					FILE*fp = NULL;
 					fp = fopen(SHUTDOWNCOUNTDOWN, "r");
 					if (NULL == fp)
 					{
@@ -1547,7 +1079,7 @@ int main()
 					{
 						thebackover();
 						continue;
-					}
+					}*/
 				}
 				else if (_stricmp(str, "DAXIAOCESHI") == 0)
 				{
